@@ -1,0 +1,22 @@
+<% if @update.errors.any? %>
+<h3>
+  <%= pluralize(@update.errors.count, "error") %> kept you update from being saved
+</h3>
+<% end %>
+<% @update.errors.full_messages.each do |message| %>
+<ul>
+  <li>
+    <%= message %>
+  </li>
+</ul>
+<% end %>
+
+<%= form_for @update do |f| %>
+<%= f.label :status %>
+<%= f.text_field :status %>
+<%= f.label :user %>
+<%= f.text_field :user %>
+<%= f.label :likes %>
+<%= f.number_field :likes %>
+<%= f.submit "Create Status Update" %>
+<% end %>

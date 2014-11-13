@@ -1,0 +1,39 @@
+<%= notice %>
+<%= link_to "Create Status Update", new_update_path %>
+<h1>Status Updates</h1>
+<table>
+  <thead>
+    <tr>
+      <th>
+        Status Update
+      </th>
+      <th>
+        User
+      </th>
+      <th>
+        Likes
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @updates.each do |update| %>
+    <tr>
+      <td>
+        <%= update.status %>
+      </td>
+      <td>
+        <%= update.user %>
+      </td>
+      <td>
+      <%= update.likes %>
+      </td>
+      <td>
+        <%= link_to "edit", edit_update_path(update) %>
+      </td>
+      <td>
+        <%= link_to "Delete", update_path(update), method: :delete, data: {confirm: "are you sure?"} %>
+      </td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
